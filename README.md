@@ -1,0 +1,2 @@
+# avatar-copier
+.af
