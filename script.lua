@@ -54,7 +54,7 @@ Close.Text = "X"
 Close.TextColor3 = Color3.fromRGB(255, 100, 100)
 Close.TextScaled = true
 Close.MouseButton1Click:Connect(function()
-    Copier:Destroy()
+	Copier:Destroy()
 end)
 
 local CopierPage = Instance.new("Frame")
@@ -88,16 +88,6 @@ Username.TextColor3 = Color3.fromRGB(255, 255, 255)
 Username.TextScaled = true
 Username.ClearTextOnFocus = false
 
-local Username = Instance.new("TextBox")
-Username.Parent = CopierPage
-Username.BackgroundColor3 = Color3.fromRGB(100, 124, 119)
-Username.Position = UDim2.new(0, 145, 0, 18)
-Username.Size = UDim2.new(0, 260, 0, 50)
-Username.Font = Enum.Font.Gotham
-Username.Text = "ProjectLigma"
-Username.TextColor3 = Color3.fromRGB(255, 255, 255)
-Username.TextScaled = true
-Username.ClearTextOnFocus = false
 
 local UsernameCorner = Instance.new("UICorner")
 UsernameCorner.CornerRadius = UDim.new(0, 8)
@@ -147,7 +137,6 @@ Tutorial.TextXAlignment = Enum.TextXAlignment.Left
 Tutorial.TextYAlignment = Enum.TextYAlignment.Top
 Tutorial.TextWrapped = true
 
--- Bottom tabs
 local Buttons = Instance.new("Frame")
 Buttons.Parent = Main
 Buttons.BackgroundColor3 = Color3.fromRGB(33, 42, 42)
@@ -158,15 +147,14 @@ local ButtonsCorner = Instance.new("UICorner")
 ButtonsCorner.CornerRadius = UDim.new(0, 12)
 ButtonsCorner.Parent = Buttons
 
--- Tab colors
 local activeTabColor = Color3.fromRGB(100, 124, 119)
 local inactiveTabColor = Color3.fromRGB(60, 77, 79)
 
 local function setActiveTab(tab)
-    CopierTab.BackgroundColor3 = inactiveTabColor
-    IngameTab.BackgroundColor3 = inactiveTabColor
-    PremadeTab.BackgroundColor3 = inactiveTabColor
-    tab.BackgroundColor3 = activeTabColor
+	CopierTab.BackgroundColor3 = inactiveTabColor
+	IngameTab.BackgroundColor3 = inactiveTabColor
+	PremadeTab.BackgroundColor3 = inactiveTabColor
+	tab.BackgroundColor3 = activeTabColor
 end
 
 local CopierTab = Instance.new("TextButton")
@@ -211,39 +199,38 @@ local PremadeTabCorner = Instance.new("UICorner")
 PremadeTabCorner.CornerRadius = UDim.new(0, 8)
 PremadeTabCorner.Parent = PremadeTab
 
--- Premade buttons
 local function createPremade(name, posX, posY, display)
-    local btn = Instance.new("TextButton")
-    btn.Parent = Premade
-    btn.BackgroundColor3 = Color3.fromRGB(100, 124, 119)
-    btn.Position = UDim2.new(posX, 0, posY, 0)
-    btn.Size = UDim2.new(0, 128, 0, 50)
-    btn.Text = display or name
-    btn.TextColor3 = Color3.fromRGB(171, 203, 198)
-    btn.TextScaled = true
-    btn.Font = Enum.Font.Gotham
+	local btn = Instance.new("TextButton")
+	btn.Parent = Premade
+	btn.BackgroundColor3 = Color3.fromRGB(100, 124, 119)
+	btn.Position = UDim2.new(posX, 0, posY, 0)
+	btn.Size = UDim2.new(0, 128, 0, 50)
+	btn.Text = display or name
+	btn.TextColor3 = Color3.fromRGB(171, 203, 198)
+	btn.TextScaled = true
+	btn.Font = Enum.Font.Gotham
 
-    local corner = Instance.new("UICorner")
-    corner.CornerRadius = UDim.new(0, 8)
-    corner.Parent = btn
+	local corner = Instance.new("UICorner")
+	corner.CornerRadius = UDim.new(0, 8)
+	corner.Parent = btn
 
-    btn.MouseButton1Click:Connect(function()
-        Username.Text = name
-        CopierPage.Visible = true
-        Premade.Visible = false
-        Ingame.Visible = false
-        setActiveTab(CopierTab)
-    end)
+	btn.MouseButton1Click:Connect(function()
+		Username.Text = name
+		CopierPage.Visible = true
+		Premade.Visible = false
+		Ingame.Visible = false
+		setActiveTab(CopierTab)
+	end)
 end
 
 createPremade("bananni1235", 0.017, 0.026)
-createPremade("UXI_302", 0.345, 0.026)
-createPremade("babyoutmooooooon2o22", 0.674, 0.026)
-createPremade("Shedletsky", 0.017, 0.275)
-createPremade("MrDoomBringer", 0.345, 0.275)
-createPremade("johnnyschwehel1234", 0.674, 0.275, "ProjectLigma's brother avatar")
+createPremade("ProjectLigma",0.345, 0.026)
+createPremade("UXI_302", 0.674, 0.026)
+createPremade("babyoutmooooooon2o22", 0.017, 0.275)
+createPremade("Shedletsky", 0.345, 0.275)
+createPremade("MrDoomBringer", 0.674, 0.275)
+createPremade("johnnyschwehel1234", 0.017, 0.524, "ProjectLigma's brother avatar")
 
--- Ingame list (thêm bo góc cho các button)
 local Scrolling = Instance.new("ScrollingFrame")
 Scrolling.Parent = Ingame
 Scrolling.BackgroundTransparency = 1
@@ -261,137 +248,132 @@ local positionsX = {0.025, 0.362, 0.680}
 local sizeX = {112, 110, 109}
 
 for i = 1, 72 do
-    local col = ((i-1) % 3) + 1
-    local row = math.floor((i-1)/3)
-    local btn = Instance.new("TextButton")
-    btn.Parent = grid
-    btn.BackgroundColor3 = Color3.fromRGB(60, 77, 79)
-    btn.Size = UDim2.new(0, sizeX[col], 0, 43)
-    btn.Position = UDim2.new(positionsX[col], 0, 0.004 + row*0.043, 0)
-    btn.TextColor3 = Color3.fromRGB(171, 203, 198)
-    btn.TextScaled = true
-    btn.Font = Enum.Font.Gotham
-    btn.Visible = false
+	local col = ((i-1) % 3) + 1
+	local row = math.floor((i-1)/3)
+	local btn = Instance.new("TextButton")
+	btn.Parent = grid
+	btn.BackgroundColor3 = Color3.fromRGB(60, 77, 79)
+	btn.Size = UDim2.new(0, sizeX[col], 0, 43)
+	btn.Position = UDim2.new(positionsX[col], 0, 0.004 + row*0.043, 0)
+	btn.TextColor3 = Color3.fromRGB(171, 203, 198)
+	btn.TextScaled = true
+	btn.Font = Enum.Font.Gotham
+	btn.Visible = false
 
-    local btnCorner = Instance.new("UICorner")
-    btnCorner.CornerRadius = UDim.new(0, 8)
-    btnCorner.Parent = btn
+	local btnCorner = Instance.new("UICorner")
+	btnCorner.CornerRadius = UDim.new(0, 8)
+	btnCorner.Parent = btn
 
-    btn.MouseButton1Click:Connect(function()
-        if btn.Text ~= "" then
-            Username.Text = btn.Text
-            CopierPage.Visible = true
-            Ingame.Visible = false
-            Premade.Visible = false
-            setActiveTab(CopierTab)
-        end
-    end)
-    table.insert(buttons, btn)
+	btn.MouseButton1Click:Connect(function()
+		if btn.Text ~= "" then
+			Username.Text = btn.Text
+			CopierPage.Visible = true
+			Ingame.Visible = false
+			Premade.Visible = false
+			setActiveTab(CopierTab)
+		end
+	end)
+	table.insert(buttons, btn)
 end
 
--- Tab switching
 CopierTab.MouseButton1Click:Connect(function()
-    CopierPage.Visible = true Ingame.Visible = false Premade.Visible = false
-    setActiveTab(CopierTab)
+	CopierPage.Visible = true Ingame.Visible = false Premade.Visible = false
+	setActiveTab(CopierTab)
 end)
 
 IngameTab.MouseButton1Click:Connect(function()
-    CopierPage.Visible = false Ingame.Visible = true Premade.Visible = false
-    setActiveTab(IngameTab)
+	CopierPage.Visible = false Ingame.Visible = true Premade.Visible = false
+	setActiveTab(IngameTab)
 end)
 
 PremadeTab.MouseButton1Click:Connect(function()
-    CopierPage.Visible = false Ingame.Visible = false Premade.Visible = true
-    setActiveTab(PremadeTab)
+	CopierPage.Visible = false Ingame.Visible = false Premade.Visible = true
+	setActiveTab(PremadeTab)
 end)
 
--- Dragify
 local function dragify(frame)
-    local dragging, dragInput, dragStart, startPos
-    frame.InputBegan:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseButton1 then
-            dragging = true
-            dragStart = input.Position
-            startPos = frame.Position
-        end
-    end)
-    frame.InputChanged:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseMovement then
-            dragInput = input
-        end
-    end)
-    UserInputService.InputChanged:Connect(function(input)
-        if dragging and input == dragInput then
-            local delta = input.Position - dragStart
-            frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-        end
-    end)
-    frame.InputEnded:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseButton1 then
-            dragging = false
-        end
-    end)
+	local dragging, dragInput, dragStart, startPos
+	frame.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 then
+			dragging = true
+			dragStart = input.Position
+			startPos = frame.Position
+		end
+	end)
+	frame.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement then
+			dragInput = input
+		end
+	end)
+	UserInputService.InputChanged:Connect(function(input)
+		if dragging and input == dragInput then
+			local delta = input.Position - dragStart
+			frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+		end
+	end)
+	frame.InputEnded:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 then
+			dragging = false
+		end
+	end)
 end
 dragify(Main)
 
--- Preview PFP
 task.spawn(function()
-    while task.wait(0.3) do
-        local name = Username.Text
-        pcall(function()
-            local userId = Players:GetUserIdFromNameAsync(name)
-            UserPFP.Image = "rbxthumb://type=AvatarHeadShot&id="..userId.."&w=420&h=420"
-        end)
-    end
+	while task.wait(0.3) do
+		local name = Username.Text
+		pcall(function()
+			local userId = Players:GetUserIdFromNameAsync(name)
+			UserPFP.Image = "rbxthumb://type=AvatarHeadShot&id="..userId.."&w=420&h=420"
+		end)
+	end
 end)
 
--- Refresh players (giữ nguyên)
 local function refreshPlayers()
-    local plrs = Players:GetPlayers()
-    for i, btn in ipairs(buttons) do
-        local plr = plrs[i]
-        if plr and plr ~= localPlayer then
-            btn.Text = plr.Name
-            btn.Visible = true
-        else
-            btn.Visible = false
-        end
-    end
+	local plrs = Players:GetPlayers()
+	for i, btn in ipairs(buttons) do
+		local plr = plrs[i]
+		if plr and plr ~= localPlayer then
+			btn.Text = plr.Name
+			btn.Visible = true
+		else
+			btn.Visible = false
+		end
+	end
 end
 Players.PlayerAdded:Connect(refreshPlayers)
 Players.PlayerRemoving:Connect(refreshPlayers)
 refreshPlayers()
 task.spawn(function()
-    while task.wait(0.2) do
-        refreshPlayers()
-    end
+	while task.wait(0.2) do
+		refreshPlayers()
+	end
 end)
 
--- COPY AVATAR (giữ nguyên)
 Copy.MouseButton1Click:Connect(function()
-    local targetName = Username.Text
-    pcall(function()
-        local userId = Players:GetUserIdFromNameAsync(targetName)
-        local newChar = Players:CreateHumanoidModelFromUserId(userId)
-        local oldChar = localPlayer.Character
-        local pos = oldChar and oldChar:FindFirstChild("HumanoidRootPart") and oldChar.HumanoidRootPart.CFrame or CFrame.new(0,5,0)
-        newChar:PivotTo(pos)
-        newChar.Parent = workspace
-        if oldChar then oldChar:Destroy() end
-        localPlayer.Character = newChar
-        workspace.CurrentCamera.CameraSubject = newChar:WaitForChild("Humanoid")
+	local targetName = Username.Text
+	pcall(function()
+		local userId = Players:GetUserIdFromNameAsync(targetName)
+		local newChar = Players:CreateHumanoidModelFromUserId(userId)
+		local oldChar = localPlayer.Character
+		local pos = oldChar and oldChar:FindFirstChild("HumanoidRootPart") and oldChar.HumanoidRootPart.CFrame or CFrame.new(0,5,0)
+		newChar:PivotTo(pos)
+		newChar.Parent = workspace
+		if oldChar then oldChar:Destroy() end
+		localPlayer.Character = newChar
+		workspace.CurrentCamera.CameraSubject = newChar:WaitForChild("Humanoid")
 
-        for _, v in newChar:GetDescendants() do
-            if v:IsA("BasePart") then
-                v.Anchored = false
-            elseif v:IsA("BillboardGui") or v:IsA("SurfaceGui") then
-                v:Destroy()
-            end
-        end
-        local hum = newChar:FindFirstChildWhichIsA("Humanoid")
-        if hum then
-            hum.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
-        end
-        print("Copied avatar: " .. targetName)
-    end)
+		for _, v in newChar:GetDescendants() do
+			if v:IsA("BasePart") then
+				v.Anchored = false
+			elseif v:IsA("BillboardGui") or v:IsA("SurfaceGui") then
+				v:Destroy()
+			end
+		end
+		local hum = newChar:FindFirstChildWhichIsA("Humanoid")
+		if hum then
+			hum.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
+		end
+		print("Copied avatar: " .. targetName)
+	end)
 end)
